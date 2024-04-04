@@ -34,7 +34,7 @@ export class AppService {
   }
 
   async getOriginalUrl(shortUrl: string) {
-    return 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    return 'https://rb.gy/nmuzn8';
 
     const url = await this.dataSource
       .getRepository(Url)
