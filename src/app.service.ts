@@ -34,11 +34,11 @@ export class AppService {
   }
 
   async getOriginalUrl(shortUrl: string) {
-    return 'https://rb.gy/nmuzn8';
-
     const url = await this.dataSource
       .getRepository(Url)
       .findOne({ where: { shortUrl } });
-    return url ? url.originalUrl : 'Not found';
+    return url
+      ? url.originalUrl
+      : 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
   }
 }
