@@ -1,18 +1,19 @@
 import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
 import { AppService } from './app.service';
+import { CreateShortUrlDto } from './dto/create-short-url.dto';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  health(): string {
+    return this.appService.getHealth();
   }
 
   @Post()
-  async getShortUrl(@Body('originalUrl') originalUrl: string) {
-    return this.appService.getShortUrl(originalUrl);
+  async getShortUrl(@Body() body: CreateShortUrlDto) {
+    return this.appService.getShortUrl(body.originalUrl);
   }
 
   @Get('/:shortUrl')

@@ -3,13 +3,12 @@ FROM node:16.17.0
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY package.json ./
-COPY yarn.lock ./
+COPY package*.json ./
 
-RUN yarn
+RUN npm install
 
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
-CMD [ "yarn", "run", "start:dev" ]
+CMD [ "npm", "run", "start:dev" ]
